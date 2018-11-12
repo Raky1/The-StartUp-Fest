@@ -1,0 +1,136 @@
+.App-header {
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    
+    text-align: center;
+    text-shadow: 2px 2px 5px #da0303;
+    color: white;
+
+    background-color: #ff6f31;
+    box-shadow: 0px 3px 10px #aaa;
+}
+
+.App-content {
+    width: 100%;
+    margin: auto;
+}
+
+.App-startup-list {
+    margin: 20px;
+}
+
+.App-rating-list {
+    margin: auto;
+}
+
+/* ============= Startup List============== */
+
+.startup-box {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 225px;
+    padding: 20px;
+    
+    text-align: center;
+    
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px #aaa;
+    background-color: #ffffff;
+}
+
+.startup-box:hover {
+    background-color: #ddfaff;
+}
+
+.startup-box img {
+    margin-bottom: 2px;
+    width: 150px;
+    height: 150px;
+
+    box-shadow: 0px 1px 5px #aaa;
+    border-radius: 4px;
+}
+
+.startup-box-name {
+    font-size: 18px;
+}
+
+.startup-box-segment {
+    font-size: 14px;
+}
+
+/* ============= Rating List ============== */
+
+.Rating-content {
+    margin: auto;
+}
+
+.Rating-list {
+    text-align: center;
+}
+
+.startup-rating-box {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 300px;
+    padding: 20px;
+    
+    text-align: left;
+
+    line-height: 22px;
+    background-color: #ffffff;
+}
+
+.startup-rating-box:hover{
+    background-color: #c1f3fc;
+}
+
+.startup-rating-box-position {
+    margin: auto;
+    width: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.startup-rating-box img {
+    margin: 0px;
+    margin-bottom: 2px;
+    width: 75px;
+    height: 75px;
+
+    box-shadow: 0px 1px 5px #aaa;
+    border-radius: 4px;
+}
+
+.Rating-box-info {
+    margin: 0px;
+    text-align: left;
+}
+
+.startup-rating-box-name {
+    margin: 0px;
+    font-size: 18px;
+}
+
+.startup-rating-box-segment {
+    font-size: 14px;
+}
+
+/* ============= Rating Star Box ============== */
+
+.star-rating-box {
+    font-size: 25px;
+}
+
+.star-off {
+    
+}
+
+.star-on {
+    
+}
+
+.star-rating-on {
+    
+}
