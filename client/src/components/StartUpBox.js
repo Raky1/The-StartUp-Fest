@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import imgTest from '../images/test.jpg';
 
 class StartUpBox extends Component {
+
+    constructor(props) {
+        super(props);
+
+        //setup startup info
+        this.state = {
+            name: this.props.startupData.name,
+            segment: this.props.startupData.Segment.name,
+            imgUrl: this.props.startupData.imageUrl
+        };
+    }
+
     render() {
-
-        const name = "Startup Name";
-        const segment = "Segment";
-
         return (
             <div className="startup-box cols-sm-3">
-                <img src={imgTest} alt="teste"/>
+                <img src={this.state.imgUrl} alt={this.state.name}/>
                 <div className="startup-box-name">
-                    {name}
+                    {this.state.name}
                 </div>
                 <div className="startup-box-segment">
-                    {segment}
+                    {this.state.segment}
                 </div>
             </div>
         );

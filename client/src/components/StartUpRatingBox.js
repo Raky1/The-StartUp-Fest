@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //components
-import StarRatingBox from './StarRatingBox';
+import StaticStarRatingBox from './StaticStarRatingBox';
 import imgTest from '../images/test.jpg';
 
 class StartUpBox extends Component {
@@ -26,7 +26,7 @@ class StartUpBox extends Component {
                         <div className="startup-rating-box-segment">
                             {segment}
                         </div>
-                        <StarRatingBox />
+                        <StaticStarRatingBox />
                     </div>
                 </div>                
             </div>

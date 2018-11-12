@@ -8,7 +8,7 @@ class StartUpRatingList extends Component {
     render() {
 
         return (
-            <div className="App-startup-list">
+            <div>
                 <StartUpRatingBox />
                 <StartUpRatingBox />
                 <StartUpRatingBox />

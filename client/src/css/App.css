@@ -18,11 +18,20 @@
 
 .App-startup-list {
     margin: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.App-rating-content {
+    margin: auto;
 }
 
 .App-rating-list {
     margin: auto;
+    text-align: center;
 }
+
+
 
 /* ============= Startup List============== */
 
@@ -36,11 +45,13 @@
     
     border-radius: 5px;
     box-shadow: 0px 2px 5px #aaa;
-    background-color: #ffffff;
+    background-color: #f3f3f3;
 }
 
 .startup-box:hover {
-    background-color: #ddfaff;
+    cursor: pointer;
+    box-shadow: 0px 3px 10px #aaa;
+    /*background-color: #ddfaff;*/
 }
 
 .startup-box img {
@@ -48,7 +59,6 @@
     width: 150px;
     height: 150px;
 
-    box-shadow: 0px 1px 5px #aaa;
     border-radius: 4px;
 }
 
@@ -62,14 +72,6 @@
 
 /* ============= Rating List ============== */
 
-.Rating-content {
-    margin: auto;
-}
-
-.Rating-list {
-    text-align: center;
-}
-
 .startup-rating-box {
     margin: auto;
     margin-bottom: 25px;
@@ -82,10 +84,13 @@
     background-color: #ffffff;
 }
 
+/*
 .startup-rating-box:hover{
     background-color: #c1f3fc;
 }
+*/
 
+/* rating number */
 .startup-rating-box-position {
     margin: auto;
     width: 20px;
@@ -93,6 +98,7 @@
     font-size: 18px;
 }
 
+/* image */
 .startup-rating-box img {
     margin: 0px;
     margin-bottom: 2px;
@@ -103,6 +109,7 @@
     border-radius: 4px;
 }
 
+/* info startup */
 .Rating-box-info {
     margin: 0px;
     text-align: left;

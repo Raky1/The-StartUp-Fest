@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class StarRatingBox extends Component {
+class StaticStarRatingBox extends Component {
 
     constructor(props) {
         super(props);
@@ -24,4 +24,4 @@ class StarRatingBox extends Component {
     }
 }
 
-export default StarRatingBox;
+export default StaticStarRatingBox;
