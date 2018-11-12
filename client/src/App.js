@@ -19,6 +19,7 @@ class App extends Component {
     
     //title
     const titleApp = "The StartUp Fest";
+    const madeby = "Criado por Rafael";
 
     return (
       <div className="App">
@@ -52,6 +53,10 @@ class App extends Component {
         </div>
 
         </ApolloProvider>
+
+        <footer className="App-footer">
+          {madeby}
+        </footer>
 
       </div>
     );

@@ -1,7 +1,7 @@
 .App-header {
     width: 100%;
     height: 100px;
-    padding: 20px;
+    padding-top: 20px;
     
     text-align: center;
     text-shadow: 2px 2px 5px #da0303;
@@ -11,6 +11,19 @@
     box-shadow: 0px 3px 10px #aaa;
 }
 
+.App-header:hover {
+    cursor: default;
+}
+
+.App-footer {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background-color: #ff6f31;
+}
+
 .App-content {
     width: 100%;
     margin: auto;
@@ -18,8 +31,6 @@
 
 .App-startup-list {
     margin: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
 }
 
 .App-rating-content {
@@ -31,27 +42,31 @@
     text-align: center;
 }
 
-
-
 /* ============= Startup List============== */
+
+.startup-box-col {
+    margin: 10px;
+}
 
 .startup-box {
     margin: auto;
-    margin-bottom: 25px;
     width: 225px;
+    height: 225px; 
     padding: 20px;
+
+    overflow: hidden;
     
     text-align: center;
     
     border-radius: 5px;
     box-shadow: 0px 2px 5px #aaa;
     background-color: #f3f3f3;
+    transition: 0.2s;
 }
 
 .startup-box:hover {
     cursor: pointer;
     box-shadow: 0px 3px 10px #aaa;
-    /*background-color: #ddfaff;*/
 }
 
 .startup-box img {
@@ -60,6 +75,32 @@
     height: 150px;
 
     border-radius: 4px;
+    transition: 0.2s;
+}
+
+.startup-box--collapsed{
+    margin: auto;
+    width: 300px;
+    height: 100%; 
+    padding: 20px;
+
+    overflow: hidden;
+    
+    text-align: center;
+    
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px #aaa;
+    background-color: #f3f3f3;
+    transition: 0.5s;
+}
+
+.startup-box--collapsed img {
+    margin-bottom: 2px;
+    width: 200px;
+    height: 200px;
+
+    border-radius: 4px;
+    transition: 0.5s;
 }
 
 .startup-box-name {
@@ -68,6 +109,18 @@
 
 .startup-box-segment {
     font-size: 14px;
+}
+
+.startup-box-description {
+    margin-top:10px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.startup-box-rating-box {
+    margin-top:10px;
+    margin-bottom:5px;
+    font-size: 16px;
 }
 
 /* ============= Rating List ============== */
@@ -83,12 +136,6 @@
     line-height: 22px;
     background-color: #ffffff;
 }
-
-/*
-.startup-rating-box:hover{
-    background-color: #c1f3fc;
-}
-*/
 
 /* rating number */
 .startup-rating-box-position {
@@ -124,20 +171,12 @@
     font-size: 14px;
 }
 
+.startup-box-rating-box {
+
+}
+
 /* ============= Rating Star Box ============== */
 
 .star-rating-box {
     font-size: 25px;
-}
-
-.star-off {
-    
-}
-
-.star-on {
-    
-}
-
-.star-rating-on {
-    
 }

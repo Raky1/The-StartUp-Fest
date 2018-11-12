@@ -6,7 +6,6 @@ import imgTest from '../images/test.jpg';
 
 class StartUpBox extends Component {
     render() {
-
         const name = "Startup Name";
         const segment = "Segment";
 
@@ -26,7 +25,7 @@ class StartUpBox extends Component {
                         <div className="startup-rating-box-segment">
                             {segment}
                         </div>
-                        <StaticStarRatingBox />
+                        <StaticStarRatingBox rating={3}/>
                     </div>
                 </div>                
             </div>

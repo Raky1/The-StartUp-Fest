@@ -6,7 +6,6 @@ import StartUpRatingBox from './StartUpRatingBox';
 class StartUpRatingList extends Component {
 
     render() {
-
         return (
             <div>
                 <StartUpRatingBox />
