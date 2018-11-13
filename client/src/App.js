@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import './css/App.css';
-import ApolloClient from 'apollo-boost';
+import { client } from './utils/apolloUtils';
 import { ApolloProvider } from 'react-apollo';
 
 //components
 import StartUpList from './components/StartUpList';
 import StartUpRatingList from './components/StartUpRatingList';
 
-//set config apollo
-const client = new ApolloClient({
-  uri: 'https://startups-project-mytvsxrgeb.now.sh/'
-});
-
 
 //app class
 class App extends Component {
+
   render() {
     
     //title

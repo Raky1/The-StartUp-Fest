@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 
 class StaticStarRatingBox extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            rating: this.props.rating
-        }
-    }
-
     displayStars(rating) {
         const stars = [];
 
@@ -25,7 +18,7 @@ class StaticStarRatingBox extends Component {
     }
 
     render() {
-        const rating = this.state.rating;
+        const rating = this.props.rating;
 
         return (
             <div className="star-rating-box">

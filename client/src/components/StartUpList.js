@@ -1,23 +1,9 @@
 import React, { Component } from 'react';
-import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
+import { getAllStartups } from '../utils/apolloUtils';
 
 //components
 import StartUpBox from './StartUpBox';
-
-// graphql query
-const getAllStartups = gql`
-    query GetAllStartups {
-        allStartups {
-            name
-            description
-            imageUrl
-            Segment {
-                name
-            }
-        }
-    }
-`;
 
 class StartUpList extends Component {
 
@@ -30,6 +16,7 @@ class StartUpList extends Component {
     }
 
     handleClick(i) {
+        if(this.state.selected === i) return;
         this.setState({
             selected: i
         });
