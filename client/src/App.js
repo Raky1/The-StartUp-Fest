@@ -76,6 +76,7 @@ class App extends Component {
           <StartUpList startupsRating={this.state.startUpsRating}/>
 
           <div className="App-rating-content row">
+            <h3>Ranking</h3>
 
             <div className="App-rating-list col-sm">
               <h3>Proposta</h3>

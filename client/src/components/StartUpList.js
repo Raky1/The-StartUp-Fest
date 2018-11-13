@@ -58,7 +58,7 @@ class StartUpList extends Component {
                 }
                 return (
                     <div key={'div'+i} className="startup-box-col col-sm">
-                        <StartUpBox key={i} startupData={startup} clicked={clicked} onClick={() => this.handleClick(i)}/>
+                        <StartUpBox key={i} componentId={i} startupData={startup} clicked={clicked} onClick={(i) => this.handleClick(i)}/>
                     </div>
                 );
             });

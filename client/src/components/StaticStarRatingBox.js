@@ -29,7 +29,7 @@ class StaticStarRatingBox extends Component {
 
         return (
             <div className="static-star-rating-box">
-                {this.displayStars(rating)}{(this.props.displayNumber ? rating+'/5' : '')}
+                {this.displayStars(rating)}{(this.props.displayNumber ? Math.round(rating*10)/10+'/5' : '')}
             </div>
         );
     }

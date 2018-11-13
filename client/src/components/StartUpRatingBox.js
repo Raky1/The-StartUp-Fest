@@ -3,14 +3,18 @@ import React, { Component } from 'react';
 //components
 import StaticStarRatingBox from './StaticStarRatingBox';
 
+/**
+ * Component StartUpRatingBox
+ * Custom properts:
+ *  startupRating: array
+ *  rankingNumber: number
+ */
+
 class StartUpBox extends Component {
     render() {
 
         const info = this.props.startupData;
-        const rating = this.props.rating;
         const ranking = this.props.rankingNumber;
-
-        console.log(info.name, rating);
 
         return (
             <div className="startup-rating-box">
@@ -28,7 +32,7 @@ class StartUpBox extends Component {
                         <div className="startup-rating-box-segment">
                             {info.Segment.name}
                         </div>
-                        <StaticStarRatingBox rating={rating/info.count} displayNumber={true}/>
+                        <StaticStarRatingBox rating={info.rating} displayNumber={true}/>
                     </div>
                 </div>                
             </div>

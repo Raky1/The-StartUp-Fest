@@ -5,6 +5,7 @@ import React, { Component } from 'react';
  * Custom properts:
  *  rating: number
  *  displayNumber: bool
+ *  onClick: function(rating)
  */
 
 class DinamicStarRatingBox extends Component {
@@ -15,9 +16,9 @@ class DinamicStarRatingBox extends Component {
 
         for(let i = 1; i <= 5; i++) {
             if(rating >= i)
-                stars.push(<span key={i}>&#9733;</span>);
+                stars.push(<span key={i} onClick={() => this.props.onClick(i)}>&#9733;</span>);
             else
-                stars.push(<span key={i}>&#9734;</span>);
+                stars.push(<span key={i} onClick={() => this.props.onClick(i)}>&#9734;</span>);
         }
 
         return (
