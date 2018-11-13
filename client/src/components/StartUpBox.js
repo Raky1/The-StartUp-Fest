@@ -1,42 +1,26 @@
 import React, { Component } from 'react';
-import { firebaseDatabase } from '../utils/firebaseUtils';
 
 //components
 import StaticStarRatingBox from './StaticStarRatingBox';
+
+/**
+ * Component StartupBox
+ * Custom properts:
+ *  startupData: jsonObject
+ */
+
 
 class StartUpBox extends Component {
 
     constructor(props) {
         super(props);
-
-        //setup startup info
-        this.state = {
-            name: this.props.startupData.name,
-            segment: this.props.startupData.Segment.name,
-            imgUrl: this.props.startupData.imageUrl,
-
-            description: this.props.startupData.description,
-            proposta: 1,
-            pitch: 1,
-            desenvolvimento: 1
-        };
-
-        firebaseDatabase.collection('StartUps').get().then(snapshot => {
-            snapshot.docs.forEach(doc => {
-                this.setState({
-                    proposta: doc.data().proposta,
-                    pitch: doc.data().pitch,
-                    desenvolvimento: doc.data().desenvolvimento
-                });
-            });
-        });
     }
 
-    displayStaticRating() {
+    displayStaticRating(info) {
 
-        const proposta = this.state.proposta;
-        const pitch = this.state.pitch;
-        const desenvolvimento = this.state.desenvolvimento;
+        const proposta = info.proposta/info.count;
+        const pitch = info.pitch/info.count;
+        const desenvolvimento = info.desenvolvimento/info.count;;
 
         return(
             <div>
@@ -62,21 +46,23 @@ class StartUpBox extends Component {
 
     render() {
 
+        const info = this.props.startupData;
+
         return (
             <div className={this.props.clicked ? 'startup-box--collapsed' : 'startup-box'} onClick={(i) => this.props.onClick(i)}>
-                <img src={this.state.imgUrl} alt={this.state.name} />
+                <img src={info.imageUrl} alt={info.name} />
                 <div className="startup-box-name">
-                    {this.state.name}
+                    {info.name}
                 </div>
                 <div className="startup-box-segment">
-                    {this.state.segment}
+                    {info.Segment.name}
                 </div>
 
                 <div className="startup-box-description">
-                    {this.state.description}
+                    {info.description}
                 </div>
 
-                {this.displayStaticRating()}
+                {this.displayStaticRating(info)}
             </div>
         );
     }
