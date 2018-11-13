@@ -177,6 +177,11 @@
 
 /* ============= Rating Star Box ============== */
 
-.star-rating-box {
+.static-star-rating-box {
     font-size: 25px;
+}
+
+.dinamic-star-rating-box {
+    font-size: 25px;
+    color: yellow;
 }

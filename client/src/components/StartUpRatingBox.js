@@ -2,30 +2,33 @@ import React, { Component } from 'react';
 
 //components
 import StaticStarRatingBox from './StaticStarRatingBox';
-import imgTest from '../images/test.jpg';
 
 class StartUpBox extends Component {
     render() {
-        const name = "Startup Name";
-        const segment = "Segment";
+
+        const info = this.props.startupData;
+        const rating = this.props.rating;
+        const ranking = this.props.rankingNumber;
+
+        console.log(info.name, rating);
 
         return (
             <div className="startup-rating-box">
                 <div className="row" >
                     <div className="startup-rating-box-position col-2">
-                        1º
+                        {ranking}º
                     </div>
                     <div className="col-4">
-                        <img src={imgTest} alt="teste"/>
+                        <img src={info.imageUrl} alt={info.name}/>
                     </div>
                     <div className="Rating-box-info col-6">
                         <div className="startup-rating-box-name">
-                            {name}
+                            {info.name}
                         </div>
                         <div className="startup-rating-box-segment">
-                            {segment}
+                            {info.Segment.name}
                         </div>
-                        <StaticStarRatingBox rating={3}/>
+                        <StaticStarRatingBox rating={rating/info.count} displayNumber={true}/>
                     </div>
                 </div>                
             </div>

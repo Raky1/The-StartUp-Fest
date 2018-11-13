@@ -12,10 +12,6 @@ import StaticStarRatingBox from './StaticStarRatingBox';
 
 class StartUpBox extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     displayStaticRating(info) {
 
         const proposta = info.proposta/info.count;

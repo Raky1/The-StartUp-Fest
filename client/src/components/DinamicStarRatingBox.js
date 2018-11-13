@@ -7,7 +7,8 @@ import React, { Component } from 'react';
  *  displayNumber: bool
  */
 
-class StaticStarRatingBox extends Component {
+class DinamicStarRatingBox extends Component {
+
 
     displayStars(rating) {
         const stars = [];
@@ -28,11 +29,11 @@ class StaticStarRatingBox extends Component {
         const rating = this.props.rating;
 
         return (
-            <div className="static-star-rating-box">
-                {this.displayStars(rating)}{(this.props.displayNumber ? rating+'/5' : '')}
+            <div className="dinamic-star-rating-box">
+                {this.displayStars(rating)}{(this.props.displayNumber ? rating : '')}
             </div>
         );
     }
 }
 
-export default StaticStarRatingBox;
+export default DinamicStarRatingBox;

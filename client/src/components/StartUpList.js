@@ -38,11 +38,11 @@ class StartUpList extends Component {
             return(<h3>Carregando...</h3>);
         } else {
 
+            const rating = this.props.startupsRating;
+
             return data.allStartups.map((startup, i) => {
 
                 const clicked = (i === this.state.selected);
-
-                let rating = this.props.startupsRating;
 
                 //add rating values to startup data
                 if (rating[startup.name]) {
