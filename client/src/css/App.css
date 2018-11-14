@@ -129,6 +129,7 @@
 
 .startup-rating-box {
     margin: auto;
+    margin-top: 0px;
     margin-bottom: 25px;
     width: 350px;
     padding: 20px;

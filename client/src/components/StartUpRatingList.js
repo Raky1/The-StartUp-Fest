@@ -17,33 +17,22 @@ class StartUpRatingList extends Component {
     displayRanking() {
         const startups = this.props.startups;
 
-        const rakingDisplay = Array(this.props.size).fill(null);
+        const size = this.props.size;
+
+        const rakingDisplay = Array(size).fill(null);
         const rating = this.props.startupsRating;
         const category = this.props.category;
 
-        startups.map(startup => {
-
-            if (rating[startup.name]) {
-
-                const ratingValue = rating[startup.name][category]/rating[startup.name].count;
-
-                for (let i = 0; i < rakingDisplay.length; i++) {
-                    if(rakingDisplay[i]) {
-                        if (rakingDisplay[i].rating < ratingValue) {
-                            rakingDisplay[i] = startup;
-                            rakingDisplay[i].rating = ratingValue;
-                            break;
-                        }
-                    } else {
-                        rakingDisplay[i] = startup;
-                        rakingDisplay[i].rating = ratingValue;
-                        break;
-                    }
-                }
-            }
-
-            return null;
+        startups.sort((a, b) => {
+            let value_a = rating[a.name][category]/rating[a.name].count;
+            let value_b = rating[b.name][category]/rating[b.name].count;
+            return value_b-value_a;
         });
+
+        for(let i = 0; i < size; i++) {
+            rakingDisplay[i] = startups[i];
+            rakingDisplay[i].rating = rating[startups[i].name][category]/rating[startups[i].name].count;
+        }
 
         return (
             <div>
