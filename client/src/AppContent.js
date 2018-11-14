@@ -84,9 +84,9 @@ class AppContent extends Component {
                                 startups={data.allStartups}
                                 startupsRating={this.state.startupsRating}
                                 updateRatingFromDatabase={() => this.updateRatingFromDatabase()} />
-
+                            <h2 id="Ranking"> Ranking </h2>
                             <div className="App-rating-content row">
-
+                                
                                 <div className="App-rating-list col-sm">
                                     <h3>Proposta</h3>
                                     <StartUpRatingList

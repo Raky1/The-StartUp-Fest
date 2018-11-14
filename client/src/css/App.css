@@ -43,6 +43,13 @@
     text-align: center;
 }
 
+#Ranking {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
 /* ============= Startup List============== */
 
 .startup-box-col {

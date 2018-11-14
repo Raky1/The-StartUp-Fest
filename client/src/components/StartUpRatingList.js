@@ -15,7 +15,7 @@ import StartUpRatingBox from './StartUpRatingBox';
 class StartUpRatingList extends Component {
 
     displayRanking() {
-        const startups = this.props.startups;
+        const startups = this.props.startups.slice();//copy
 
         const size = this.props.size;
 
