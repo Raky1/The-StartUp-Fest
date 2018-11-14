@@ -35,3 +35,17 @@ button:hover {
   font-size: 12px;
 
 }
+
+.btn-voted {
+  width: 150px;
+  margin-left: 10px;
+  background: #c0c0c0;
+  color: black;
+  font-size: 12px;
+
+}
+
+.btn-voted:hover {
+  background: #c0c0c0;
+  color: #414141;
+}

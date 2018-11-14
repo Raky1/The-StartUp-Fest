@@ -22,6 +22,7 @@ class StartUpBox extends Component {
 
         this.state = {
             votingMode: false,
+            voted: false,
             starSelected: Array(3).fill(1)
         }
     }
@@ -52,7 +53,8 @@ class StartUpBox extends Component {
             this.props.updateRatingFromDatabase();
 
             this.setState({
-                starSelected: Array(3).fill(1)
+                starSelected: Array(3).fill(1),
+                voted: true
             });
         }
 
@@ -117,8 +119,8 @@ class StartUpBox extends Component {
                         Desenvolvimento
                         <StaticStarRatingBox displayNumber={true} rating={desenvolvimento}/>
                     </div>
-    
-                    <button onClick={() => this.clickVote()}>Vote!</button>
+                    {this.state.voted ? <button className="btn-voted">Obrigado por Votar!</button> : <button onClick={() => this.clickVote()}>Vote!</button> }
+                    
                 </div>
             );
         }
