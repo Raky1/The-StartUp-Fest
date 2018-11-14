@@ -17,7 +17,7 @@ class AppContent extends Component {
         super(props);
     
         this.state = {
-          startupsRating: []
+          startupsRating: null
         };
     
         this.updateRatingFromDatabase();
@@ -74,8 +74,8 @@ class AppContent extends Component {
             `}
             >
                 {({loading, error, data}) => {
-
-                    if(loading) return <p>Carregando...</p>
+                    
+                    if(loading || !this.state.startupsRating) return <p>Carregando...</p>
                     if(error) return <p>Erro...</p>
 
                     return (
@@ -84,7 +84,7 @@ class AppContent extends Component {
                                 startups={data.allStartups}
                                 startupsRating={this.state.startupsRating}
                                 updateRatingFromDatabase={() => this.updateRatingFromDatabase()} />
-                            <h2 id="Ranking"> Ranking </h2>
+                            <hr></hr><h2 id="Ranking"> Ranking </h2>
                             <div className="App-rating-content row">
                                 
                                 <div className="App-rating-list col-sm">
