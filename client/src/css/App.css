@@ -8,7 +8,7 @@
     color: white;
 
     background-color: #ff6f31;
-    box-shadow: 0px 3px 10px #aaa;
+    box-shadow: 0px 3px 5px #aaa;
 }
 
 .App-header:hover {
@@ -22,6 +22,7 @@
     text-align: center;
     color: white;
     background-color: #ff6f31;
+    box-shadow: 0px -3px 5px #aaa;
 }
 
 .App-content {
@@ -47,7 +48,16 @@
     margin: auto;
     margin-top: 50px;
     margin-bottom: 25px;
+    width: 150px;
+    height: 45px;
+    color: white;
+    border-radius: 5px;
+    background: #ff6f31;
+    box-shadow: 0px 3px 10px #aaa;
     text-align: center;
+    text-shadow: 2px 2px 5px #da0303;
+
+    cursor: default;
 }
 
 /* ============= Startup List============== */
