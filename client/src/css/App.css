@@ -44,9 +44,15 @@
     text-align: center;
 }
 
-#Ranking {
+.info-select-startup {
     margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.info-ranking {
+    margin: auto;
+    margin-top: 25px;
     margin-bottom: 25px;
     width: 150px;
     height: 45px;

@@ -80,11 +80,13 @@ class AppContent extends Component {
 
                     return (
                         <div className="App-content">
+                            <h4 className="info-select-startup">Selecione uma Startup:</h4>
                             <StartUpList 
                                 startups={data.allStartups}
                                 startupsRating={this.state.startupsRating}
                                 updateRatingFromDatabase={() => this.updateRatingFromDatabase()} />
-                            <hr></hr><h2 id="Ranking"> Ranking </h2>
+                            <hr></hr>
+                            <h2 className="info-ranking"> Ranking </h2>
                             <div className="App-rating-content row">
                                 
                                 <div className="App-rating-list col-sm">

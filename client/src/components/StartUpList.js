@@ -23,6 +23,7 @@ class StartUpList extends Component {
     //click function of box
     handleClick(i) {
         if(this.state.selected === i) return;
+
         this.setState({
             selected: i
         });
