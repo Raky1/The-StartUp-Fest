@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import { getAllStartups } from '../utils/apolloUtils';
 
 //components
 import StartUpBox from './StartUpBox';
@@ -8,8 +6,9 @@ import StartUpBox from './StartUpBox';
 /**
  * Manager component of list of startups
  * Custom properts:
+ *  startups: jsonObject
  *  startupRating: array
- *  data: from apollo
+ *  updateRatingFromDatabase: function
  */
 class StartUpList extends Component {
 
@@ -31,38 +30,33 @@ class StartUpList extends Component {
 
     //display startups box
     displayStartup() {
-        const data = this.props.data;
-        
-        //verify if data is loaded
-        if (data.loading) {
-            return(<h3>Carregando...</h3>);
-        } else {
+        const startups = this.props.startups;
+        const rating = this.props.startupsRating;
 
-            const rating = this.props.startupsRating;
+        return startups.map((startup, i) => {
 
-            return data.allStartups.map((startup, i) => {
+            const clicked = (i === this.state.selected);
 
-                const clicked = (i === this.state.selected);
-
-                //add rating values to startup data
-                if (rating[startup.name]) {
-                    startup.proposta = rating[startup.name].proposta;
-                    startup.pitch = rating[startup.name].pitch;
-                    startup.desenvolvimento = rating[startup.name].desenvolvimento;
-                    startup.count = rating[startup.name].count;
-                } else {
-                    startup.proposta = 1;
-                    startup.pitch = 1;
-                    startup.desenvolvimento = 1;
-                    startup.count = 1;
-                }
-                return (
-                    <div key={'div'+i} className="startup-box-col col-sm">
-                        <StartUpBox key={i} componentId={i} startupData={startup} clicked={clicked} onClick={(i) => this.handleClick(i)}/>
-                    </div>
-                );
-            });
-        }
+            //add rating values to startup data
+            if (rating[startup.name]) {
+                startup.proposta = rating[startup.name].proposta;
+                startup.pitch = rating[startup.name].pitch;
+                startup.desenvolvimento = rating[startup.name].desenvolvimento;
+                startup.count = rating[startup.name].count;
+            } else {
+                startup.proposta = 1;
+                startup.pitch = 1;
+                startup.desenvolvimento = 1;
+                startup.count = 1;
+            }
+            return (
+                <div key={'div'+i} className="startup-box-col col-sm">
+                    <StartUpBox key={i} componentId={i} startup={startup} clicked={clicked} 
+                        updateRatingFromDatabase={() => this.props.updateRatingFromDatabase()}
+                        onClick={(i) => this.handleClick(i)} />
+                </div>
+            );
+        });
     }
 
     render() {
@@ -76,4 +70,4 @@ class StartUpList extends Component {
     }
 }
 
-export default graphql(getAllStartups)(StartUpList);
+export default StartUpList;

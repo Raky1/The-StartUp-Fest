@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import { getAllStartups } from '../utils/apolloUtils';
 
 //components
 import StartUpRatingBox from './StartUpRatingBox';
@@ -8,81 +6,55 @@ import StartUpRatingBox from './StartUpRatingBox';
 /**
  * Manager component of list of startups rating
  * Custom properts:
+ *  startups: jsonObject
  *  startupRating: array
  *  category: string
+ *  size: number
  */
 
 class StartUpRatingList extends Component {
 
     displayRanking() {
-        const data = this.props.data;
+        const startups = this.props.startups;
 
-        //verify if data is loaded
-        if(data.loading) {
-            return(<h4>Carregando...</h4>);
-        } else {
+        const rakingDisplay = Array(this.props.size).fill(null);
+        const rating = this.props.startupsRating;
+        const category = this.props.category;
 
-            const rating = this.props.startupsRating;
-            const category = this.props.category;
-            let startup1 = null;
-            let startup2 = null;
-            let startup3 = null;
+        startups.map(startup => {
 
-            data.allStartups.map(startup => {
+            if (rating[startup.name]) {
 
-                if (rating[startup.name]) {
+                const ratingValue = rating[startup.name][category]/rating[startup.name].count;
 
-                    let ratingValue = rating[startup.name][category]/rating[startup.name].count;
-
-                    if(startup1) {
-                        if (startup1.rating < ratingValue) {
-                            startup1 = startup;
-                            startup1.rating = ratingValue;
-                        } else {
-                            if(startup2) {
-                                if (startup2.rating < ratingValue) {
-                                    startup2 = startup;
-                                    startup2.rating = ratingValue;
-                                } else {
-                                    if(startup3) {
-                                        if (startup3.rating < ratingValue) {
-                                            startup3 = startup;
-                                            startup3.rating = ratingValue;
-                                        }
-                                    } else {
-                                        startup3 = startup;
-                                        startup3.rating = ratingValue;
-                                    }
-                                }
-                            } else {
-                                startup2 = startup;
-                                startup2.rating = ratingValue;
-                            }
+                for (let i = 0; i < rakingDisplay.length; i++) {
+                    if(rakingDisplay[i]) {
+                        if (rakingDisplay[i].rating < ratingValue) {
+                            rakingDisplay[i] = startup;
+                            rakingDisplay[i].rating = ratingValue;
+                            break;
                         }
                     } else {
-                        startup1 = startup;
-                        startup1.rating = ratingValue;
+                        rakingDisplay[i] = startup;
+                        rakingDisplay[i].rating = ratingValue;
+                        break;
                     }
                 }
+            }
 
-                return null;
-            });
+            return null;
+        });
 
-            return (
-                <div>
-                    {(startup1 ?
-                        <StartUpRatingBox startupData={startup1} rankingNumber={1}/> : ''
-                    )}
-                    {(startup2 ?
-                        <StartUpRatingBox startupData={startup2} rankingNumber={2}/> : ''
-                    )}
-                    {(startup3 ?
-                        <StartUpRatingBox startupData={startup3} rankingNumber={3}/> : ''
-                    )}
-                </div>
-            )
-
-        }
+        return (
+            <div>
+                {rakingDisplay.map((startup, i) => {
+                    if(startup)
+                        return (<StartUpRatingBox key={i} startup={startup} rankingNumber={i+1}/>);
+                    else
+                        return '';
+                })}
+            </div>
+        );
     }
 
     render() {
@@ -90,4 +62,4 @@ class StartUpRatingList extends Component {
     }
 }
 
-export default graphql(getAllStartups)(StartUpRatingList);
+export default StartUpRatingList;

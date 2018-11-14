@@ -9,9 +9,11 @@ import DinamicStarRatingBox from './DinamicStarRatingBox';
  * Component StartupBox
  * Custom properts:
  *  componentId: number
- *  startupData: jsonObject
+ *  startup: jsonObject
+ *  clicked: bool
+ *  updateRatingFromDatabase: function
+ *  onClick: function
  */
-
 
 class StartUpBox extends Component {
 
@@ -41,11 +43,13 @@ class StartUpBox extends Component {
         if(this.state.votingMode) {
 
             firebaseDatabase.collection('StartUps').add({
-                startup: this.props.startupData.name,
+                startup: this.props.startup.name,
                 proposta: this.state.starSelected[0],
                 pitch: this.state.starSelected[1],
                 desenvolvimento: this.state.starSelected[2]
             });
+
+            this.props.updateRatingFromDatabase();
 
             this.setState({
                 starSelected: Array(3).fill(1)
@@ -63,7 +67,7 @@ class StartUpBox extends Component {
         });
     }
 
-    displayStaticRating(info) {
+    displayStaticRating(startup) {
 
         if(this.state.votingMode) {
             const proposta = this.state.starSelected[0];
@@ -93,9 +97,9 @@ class StartUpBox extends Component {
             );
             
         } else {
-            const proposta = info.proposta/info.count;
-            const pitch = info.pitch/info.count;
-            const desenvolvimento = info.desenvolvimento/info.count;
+            const proposta = startup.proposta/startup.count;
+            const pitch = startup.pitch/startup.count;
+            const desenvolvimento = startup.desenvolvimento/startup.count;
 
             return(
                 <div>
@@ -123,7 +127,7 @@ class StartUpBox extends Component {
 
     render() {
 
-        const info = this.props.startupData;
+        const startup = this.props.startup;
         const id = this.props.componentId;
 
         return (
@@ -132,19 +136,19 @@ class StartUpBox extends Component {
                 onClick={this.props.clicked ? () => {} : () => this.props.onClick(id)}
             >
 
-                <img src={info.imageUrl} alt={info.name} onClick={this.props.clicked ? () => this.props.onClick(-1) : () => {}} />
+                <img src={startup.imageUrl} alt={startup.name} onClick={this.props.clicked ? () => this.props.onClick(-1) : () => {}} />
                 <div className="startup-box-name">
-                    {info.name}
+                    {startup.name}
                 </div>
                 <div className="startup-box-segment">
-                    {info.Segment.name}
+                    {startup.Segment.name}
                 </div>
 
                 <div className="startup-box-description">
-                    {info.description}
+                    {startup.description}
                 </div>
 
-                {this.displayStaticRating(info)}
+                {this.displayStaticRating(startup)}
             </div>
         );
     }

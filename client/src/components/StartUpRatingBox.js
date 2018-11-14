@@ -6,14 +6,14 @@ import StaticStarRatingBox from './StaticStarRatingBox';
 /**
  * Component StartUpRatingBox
  * Custom properts:
- *  startupRating: array
+ *  startup: array
  *  rankingNumber: number
  */
 
 class StartUpBox extends Component {
     render() {
 
-        const info = this.props.startupData;
+        const startup = this.props.startup;
         const ranking = this.props.rankingNumber;
 
         return (
@@ -23,16 +23,16 @@ class StartUpBox extends Component {
                         {ranking}º
                     </div>
                     <div className="col-4">
-                        <img src={info.imageUrl} alt={info.name}/>
+                        <img src={startup.imageUrl} alt={startup.name}/>
                     </div>
-                    <div className="Rating-box-info col-6">
+                    <div className="Rating-box-startup col-6">
                         <div className="startup-rating-box-name">
-                            {info.name}
+                            {startup.name}
                         </div>
                         <div className="startup-rating-box-segment">
-                            {info.Segment.name}
+                            {startup.Segment.name}
                         </div>
-                        <StaticStarRatingBox rating={info.rating} displayNumber={true}/>
+                        <StaticStarRatingBox rating={startup.rating} displayNumber={true}/>
                     </div>
                 </div>                
             </div>
